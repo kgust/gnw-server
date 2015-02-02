@@ -1,5 +1,5 @@
 # GoNorth! Websites
-FROM ubuntu:stable
+FROM ubuntu:14.04.1
 MAINTAINER Straight North Dev <dev@straightnorth.com>
 
 ENV DEBIAN_FRONTEND noninteractive
