@@ -12,7 +12,7 @@ RUN apt-get update
 RUN apt-get upgrade -y --force-yes
 
 # From forge-gnw-site.sh
-RUN apt-get install -y \
+RUN apt-get install -y --force-yes \
     libmcrypt4 \
     libpcre3-dev \
     php5-cli  \
