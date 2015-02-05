@@ -3,7 +3,7 @@ FROM ubuntu:14.04.1
 MAINTAINER Straight North Dev <dev@straightnorth.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV APP_ENV local
+ENV APP_ENV dev
 
 RUN apt-get update
 RUN apt-get install -y software-properties-common
