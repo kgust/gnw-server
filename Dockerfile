@@ -3,6 +3,7 @@ FROM ubuntu:14.04.1
 MAINTAINER Straight North Dev <dev@straightnorth.com>
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV APP_ENV local
 
 RUN apt-get update
 RUN apt-get install -y software-properties-common
@@ -30,4 +31,4 @@ WORKDIR /data
 EXPOSE 8000
 
 #CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
-CMD ["php", "artisan", "serve", "--host=0.0.0.0" "--env=local"]
+CMD [ "php", "artisan", "serve", "--host=0.0.0.0" ]
