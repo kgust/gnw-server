@@ -11,20 +11,23 @@ RUN add-apt-repository ppa:ondrej/php5-5.6
 RUN apt-get update
 RUN apt-get upgrade -y --force-yes
 
-RUN apt-get install \
-    php5-cli \
-    php5-mcrypt \
-    -o Dpkg::Options::="--force-confold" \
-    -y --force-yes
-
-RUN apt-get install \
-    php5-xsl \
-    php5-gd \
+# From forge-gnw-site.sh
+RUN apt-get install -y \
+    libmcrypt4 \
+    libpcre3-dev \
+    php5-cli  \
+    php5-mysqlnd \
+    php5-apcu \
+    php5-json \
     php5-curl \
-    php5-mysql \
-    -y --force-yes
+    php5-dev \
+    php5-gd \
+    php5-gmp \
+    php5-mcrypt
+# apache2 libapache2-mod-php5
 
 WORKDIR /data
 EXPOSE 8000
-#CMD ["php", "artisan", "serve"]
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+
+#CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0" "--env=local"]
