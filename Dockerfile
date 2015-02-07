@@ -16,18 +16,20 @@ RUN apt-get upgrade -y --force-yes
 RUN apt-get install -y --force-yes \
     libmcrypt4 \
     libpcre3-dev \
-    php5-cli  \
-    php5-mysqlnd \
     php5-apcu \
-    php5-json \
+    php5-cli  \
     php5-curl \
     php5-dev \
     php5-gd \
     php5-gmp \
-    php5-mcrypt
+    php5-json \
+    php5-mcrypt \
+    php5-mysqlnd
 # apache2 libapache2-mod-php5
 
-WORKDIR /data
+RUN mkdir -p /data/www
+RUN mkdir -p /data/logs
+WORKDIR /data/www
 EXPOSE 8000
 
 #CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
