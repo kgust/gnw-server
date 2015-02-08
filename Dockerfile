@@ -24,7 +24,7 @@ RUN apt-get install -y --force-yes \
     php5-gmp \
     php5-json \
     php5-mcrypt \
-    php5-mysqlnd
+    php5-mysql
 # apache2 libapache2-mod-php5
 
 RUN mkdir -p /data/www
