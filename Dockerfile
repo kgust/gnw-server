@@ -16,6 +16,9 @@ RUN apt-get upgrade -y --force-yes
 RUN apt-get install -y --force-yes \
     libmcrypt4 \
     libpcre3-dev \
+    nodejs-legacy \
+    npm \
+    ruby-dev \
     php5-apcu \
     php5-cli  \
     php5-curl \
@@ -25,7 +28,14 @@ RUN apt-get install -y --force-yes \
     php5-json \
     php5-mcrypt \
     php5-mysql
-# apache2 libapache2-mod-php5
+#    apache2
+#    libapache2-mod-php5
+
+# Install Jekyll for building sites
+RUN gem install jekyll
+
+# Install lessc for compiling LESS
+RUN npm install -g less
 
 RUN mkdir -p /data/www
 RUN mkdir -p /data/logs
